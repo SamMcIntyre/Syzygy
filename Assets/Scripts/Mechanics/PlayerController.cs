@@ -50,5 +50,10 @@ public class PlayerController : MonoBehaviour
 		g = -1f * (mass / (grav.magnitude * 10f)); //negative bc its gravity!!! (suck it in)
 		normal = grav.normalized;
 	}
+
+
 	//make a fake addForce() function that will work with this kinematic rigidbody - directly change velo realistically with the given force
+	public void addForce(Vector2 force){
+		print(force);
+	}
 }
