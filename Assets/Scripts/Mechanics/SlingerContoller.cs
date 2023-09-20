@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+//using UnityEngine.CoreModule;
 
 public class SlingerContoller : MonoBehaviour
 {
@@ -36,14 +37,14 @@ public class SlingerContoller : MonoBehaviour
 
 		if (Mouse.current.leftButton.wasPressedThisFrame)
 		{
-			Debug.Log(mousePos);
+			//Debug.Log(mousePos);
 			mouseDown = true;
 			DragStart(mousePos);
 		}
 
 		if (Mouse.current.leftButton.wasReleasedThisFrame)
 		{
-			Debug.Log(mousePos);
+			//Debug.Log(mousePos);
 			mouseDown = false;
 			dragEndPos = mousePos;
 		}
@@ -52,7 +53,12 @@ public class SlingerContoller : MonoBehaviour
 	void DragStart(Vector2 mousePos){
 		dragStartPos = mousePos;
 		chargeLine.SetPosition(0, dragStartPos);
-		chargeLine.SetPosition(1, new Vector2(3,3));
+		Vector2[] output = new Vector2[chargeLine.positionCount];
+		//chargeLine.GetPostitions(output);
+		//Debug.Log(chargeLine.GetPostition(0));
+		Debug.Log(chargeLine.positionCount);
+		chargeLine.SetPosition(1, new Vector2(3,3)); //figure this out, why disappearing?
+		//Debug.Log(chargeLine.GetPostition(1));
 		chargeLine.enabled = true;
 	}
 
